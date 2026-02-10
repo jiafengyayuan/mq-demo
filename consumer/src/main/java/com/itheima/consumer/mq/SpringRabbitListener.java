@@ -25,4 +25,14 @@ public class SpringRabbitListener {
         System.err.println("消费者2........接收到消息：【" + msg + "】" + LocalTime.now());
     }
 
+    @RabbitListener(queues = "direct.queue1")
+    public void listenDirectQueue1(String msg) {
+        System.out.println("消费者1接收到direct.queue1的消息：【" + msg + "】");
+    }
+
+    @RabbitListener(queues = "direct.queue2")
+    public void listenDirectQueue2(String msg) {
+        System.out.println("消费者2接收到direct.queue2的消息：【" + msg + "】");
+    }
+
 }
